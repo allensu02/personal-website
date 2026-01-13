@@ -1,5 +1,7 @@
 ---
-
+// This is the "frontmatter" section - it runs on the server at build time
+// You can import components, fetch data, or define variables here
+const pageTitle = "allen";
 ---
 
 <html lang="en">
@@ -8,9 +10,164 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<!-- Navigation -->
+		<nav>
+			<a href="/" class="nav-link active">home</a>
+			<a href="/about" class="nav-link">about me</a>
+			<a href="/writings" class="nav-link">writings</a>
+		</nav>
+
+		<!-- Main Content -->
+		<main>
+			<h1>hi, i'm allen</h1>
+
+			<p>
+				i'm 23yo, based in South Bay, but moving to SF soon!
+				i just moved back from Taiwan, where I completed 6 months of mandatory military service
+			</p>
+
+			<p>
+				most recently I founded and built <a href="https://codedreams.app/">Codedreams</a>, an AI tutor for iOS devs
+			</p>
+			<p>
+				before that, I did research with intracortical BCIs at <a href="https://www.braingate.org/">BrainGate</a>
+			</p>
+			<p>
+				and i worked on cool poker & tech stuff at <a href="https://www.rf.team/">RF Labs</a>
+			</p>
+			<p>
+				you can reach me via <a href="https://x.com/allenysu">X</a> or email me at
+				allensu [at] gatech.edu
+			</p>
+
+			<!-- Social Links -->
+			<div class="social-links">
+				<a href="https://www.linkedin.com/in/allensu02/" class="social-link">
+					<span class="arrow">↗</span> linkedin
+				</a>
+				
+				<a href="https://github.com/allensu02" class="social-link">
+					<span class="arrow">↗</span> github
+				</a>
+			</div>
+		</main>
 	</body>
 </html>
+
+<style>
+	/*
+	 * GLOBAL STYLES
+	 * We define CSS variables (custom properties) at the :root level
+	 * This makes it easy to change colors across the entire site
+	 */
+	:root {
+		--bg-color: #000000;
+		--text-color: #ffffff;
+		--link-color: #5EEAD4;        /* Mint/Teal - your choice! */
+		--text-muted: #9CA3AF;        /* Gray for subtle text */
+	}
+
+	/*
+	 * Base styles for the HTML element
+	 * We use a system font stack for fast loading and native feel
+	 */
+	html {
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+		background-color: var(--bg-color);
+		color: var(--text-color);
+	}
+
+	/*
+	 * Body reset and layout
+	 * max-width constrains content for readability (long lines are hard to read)
+	 * margin: 0 auto centers the content horizontally
+	 */
+	body {
+		margin: 0;
+		padding: 2rem;
+		max-width: 650px;
+		margin: 0 auto;
+		line-height: 1.6;             /* Spacing between lines - improves readability */
+	}
+
+	/*
+	 * NAVIGATION
+	 * display: flex puts items in a row
+	 * gap adds space between flex items (cleaner than margins)
+	 */
+	nav {
+		display: flex;
+		gap: 2rem;
+		margin-bottom: 3rem;
+	}
+
+	.nav-link {
+		color: var(--text-muted);
+		text-decoration: none;        /* Removes the underline */
+		font-size: 0.95rem;
+	}
+
+	.nav-link:hover,
+	.nav-link.active {
+		color: var(--text-color);     /* White when hovered or active */
+	}
+
+	/*
+	 * TYPOGRAPHY
+	 * The heading uses a larger font-weight for that bold look
+	 */
+	h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		letter-spacing: -0.02em;      /* Slightly tighter letter spacing looks modern */
+	}
+
+	p {
+		margin-bottom: 1rem;
+		color: var(--text-color);
+	}
+
+	/*
+	 * LINKS
+	 * Inline links get the mint/teal color
+	 */
+	a {
+		color: var(--link-color);
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;   /* Underline on hover gives feedback */
+	}
+
+	/*
+	 * SOCIAL LINKS SECTION
+	 * Another flex container for the bottom links
+	 */
+	.social-links {
+		display: flex;
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.social-link {
+		color: var(--text-muted);
+		font-size: 0.95rem;
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.social-link:hover {
+		color: var(--link-color);
+		text-decoration: none;        /* No underline for these - the color change is enough */
+	}
+
+	.arrow {
+		font-size: 0.85rem;
+	}
+</style>

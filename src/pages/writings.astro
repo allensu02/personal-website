@@ -1,0 +1,134 @@
+---
+const pageTitle = "writings | allen";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<nav>
+			<a href="/" class="nav-link">home</a>
+			<a href="/about" class="nav-link">about me</a>
+			<a href="/writings" class="nav-link active">writings</a>
+		</nav>
+
+		<main>
+			<h1>writings</h1>
+
+			<!-- The typewriter effect container -->
+			<div class="typewriter">
+				<span class="typewriter-text">coming soon...</span>
+			</div>
+		</main>
+	</body>
+</html>
+
+<style>
+	:root {
+		--bg-color: #000000;
+		--text-color: #ffffff;
+		--link-color: #5EEAD4;
+		--text-muted: #9CA3AF;
+	}
+
+	html {
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+		background-color: var(--bg-color);
+		color: var(--text-color);
+	}
+
+	body {
+		margin: 0;
+		padding: 2rem;
+		max-width: 650px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	nav {
+		display: flex;
+		gap: 2rem;
+		margin-bottom: 3rem;
+	}
+
+	.nav-link {
+		color: var(--text-muted);
+		text-decoration: none;
+		font-size: 0.95rem;
+	}
+
+	.nav-link:hover,
+	.nav-link.active {
+		color: var(--text-color);
+	}
+
+	h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		letter-spacing: -0.02em;
+	}
+
+	/*
+	 * TYPEWRITER EFFECT
+	 * This uses a clever CSS trick with width animation + steps()
+	 */
+	.typewriter {
+		display: inline-block;
+	}
+
+	.typewriter-text {
+		/*
+		 * overflow: hidden - hides the text that hasn't "typed" yet
+		 * white-space: nowrap - keeps text on one line
+		 * border-right - creates the blinking cursor
+		 */
+		display: inline-block;
+		overflow: hidden;
+		white-space: nowrap;
+		border-right: 2px solid var(--link-color);  /* The cursor */
+
+		/*
+		 * width starts at 0 and animates to 100%
+		 * The text is revealed as width increases
+		 */
+		width: 0;
+
+		/*
+		 * animation shorthand: name duration timing-function fill-mode
+		 *
+		 * typing: our keyframe animation for revealing text
+		 * 2s: takes 2 seconds to type out
+		 * steps(14): "coming soon..." has 14 characters, so 14 steps
+		 *            This creates the choppy "character by character" look
+		 *            instead of a smooth reveal
+		 * forwards: keeps the final state (full width) after animation ends
+		 */
+		animation:
+			typing 2s steps(14) forwards,
+			cursor 0.5s step-end infinite;
+	}
+
+	/*
+	 * @keyframes defines the animation states
+	 * Here we're just going from width: 0 to width: 100%
+	 */
+	@keyframes typing {
+		from { width: 0; }
+		to { width: 14ch; }  /* ch = character width. 14ch = width of 14 characters */
+	}
+
+	/*
+	 * Cursor blink animation
+	 * Alternates border-color between visible and transparent
+	 */
+	@keyframes cursor {
+		0%, 100% { border-color: var(--link-color); }
+		50% { border-color: transparent; }
+	}
+</style>
