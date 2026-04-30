@@ -1,5 +1,5 @@
 ---
-const pageTitle = "about me | allen";
+const pageTitle = "random | allen";
 ---
 
 <html lang="en">
@@ -13,32 +13,19 @@ const pageTitle = "about me | allen";
 	<body>
 		<nav>
 			<a href="/" class="nav-link">home</a>
-			<a href="/about" class="nav-link active">about me</a>
+			<a href="/about" class="nav-link">about me</a>
 			<a href="/writings" class="nav-link">writings</a>
-			<a href="/random" class="nav-link">random</a>
+			<a href="/random" class="nav-link active">random</a>
 		</nav>
 
 		<main>
-			<h1>about me</h1>
+			<h1>random</h1>
 
-			<p>
-				hey! i'm allen. 
-			</p>
-
-			<p>
-				i just moved back to the Bay Area
-				i spent my last year in Taiwan
-				this website is new, i'll be making lots of updates!
-			</p>
-
-			
-
-			<h2>currently</h2>
-			<p>
-				open to new opportunities - especially interested in BCIs, Applied AI, and biotech!
-			</p>
-
-			
+			<ul class="post-list">
+				<li>
+					<a href="/random/my-in-n-out-order">my in n out order</a>
+				</li>
+			</ul>
 		</main>
 	</body>
 </html>
@@ -90,17 +77,6 @@ const pageTitle = "about me | allen";
 		letter-spacing: -0.02em;
 	}
 
-	h2 {
-		font-size: 1.25rem;
-		font-weight: 600;
-		margin-top: 2rem;
-		margin-bottom: 0.75rem;
-	}
-
-	p {
-		margin-bottom: 1rem;
-	}
-
 	a {
 		color: var(--link-color);
 		text-decoration: none;
@@ -110,17 +86,13 @@ const pageTitle = "about me | allen";
 		text-decoration: underline;
 	}
 
-	ul {
-		padding-left: 1.5rem;
-		margin-bottom: 1rem;
+	.post-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 
-	li {
-		margin-bottom: 0.5rem;
-	}
-
-	.back-link {
-		margin-top: 3rem;
-		color: var(--text-muted);
+	.post-list li {
+		margin-bottom: 0.75rem;
 	}
 </style>
