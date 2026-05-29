@@ -30,6 +30,60 @@ const pageTitle = "allen";
 				i just moved back from Taiwan, where I completed 6 months of mandatory military service
 			</p>
 
+			<section class="interest-section" aria-label="current interests">
+				<div>
+					<h2>i'm currently...</h2>
+					<ul class="interest-list">
+						<li>
+							learning machine learning by watching Karpathy's
+							<a href="https://karpathy.ai/zero-to-hero.html">Zero to Hero</a> series and building deep understanding through
+							<a href="https://github.com/kshitijg92/karpathy-zero-to-hero-deep-work">notebooks with detailed notes</a>,
+							auditing <a href="https://cs336.stanford.edu/">CS 336</a> and
+							<a href="https://cs221m.github.io/">CS 221M</a>, and reading interp and alignment papers from
+							<a href="https://www.anthropic.com/research">Anthropic</a> and
+							<a href="https://www.goodfire.ai/research">Goodfire</a>
+						</li>
+						<li>
+							exploring Stanford's campus to find the best study spots (ideally with monitors) and secret cozy & quiet places to nap
+						</li>
+						<li>
+							reading Theo Baker's
+							<a href="https://www.goodreads.com/book/show/24970115-how-to-rule-the-world?ac=1&amp;from_search=true&amp;qid=sUaWS58WzJ&amp;rank=1">How to Rule the World</a>
+						</li>
+						<li>
+							3 tabling microstakes on <a href="https://purepoker.us/">Pure Poker</a> and trying to find good home games
+						</li>
+					</ul>
+				</div>
+
+				<div>
+					<h2>i'm excited about...</h2>
+					<ul class="interest-list">
+						<li>
+							neurotech advancements like the
+							<a href="https://science.xyz/technologies/prima/">PRIMA visual prosthesis</a>,
+							the <a href="https://science.xyz/technologies/biohybrid/">biohybrid BCI</a>, and other
+							<a href="https://neuralink.com/technology/">high bandwidth BCIs</a>
+						</li>
+						<li>
+							applying AI in bio and life sciences
+						</li>
+						<li>
+							meeting cool people at 1517 Summit and Monaco Poker Invitational
+						</li>
+						<li>
+							celebrating the US Semiquincentennial (fancy name for 250th anniversary) on Jul 4 in DC with family
+						</li>
+						<li>
+							going to my first wedding in the US and being a groomsman for the first time!
+						</li>
+						<li>
+							going to Burning Man for the first time, my group and i have no idea what we are doing, advice would be greatly appreciated
+						</li>
+					</ul>
+				</div>
+			</section>
+
 			<p>
 				most recently I founded and built <a href="https://codedreams.app/">Codedreams</a>, an AI tutor for iOS devs
 			</p>
@@ -40,8 +94,8 @@ const pageTitle = "allen";
 				and i worked on cool poker & tech stuff at <a href="https://www.rf.team/">RF Labs</a>
 			</p>
 			<p>
-				you can reach me via <a href="https://x.com/allenysu">X</a> or
-				allensu [at] gatech.edu
+				say hi on <a href="https://x.com/allenysu">X</a> or allensu [at] gatech.edu
+				i always love meeting new ppl!
 			</p>
 
 			<!-- Social Links -->
@@ -234,6 +288,40 @@ const pageTitle = "allen";
 	p {
 		margin-bottom: 1rem;
 		color: var(--text-color);
+	}
+
+	.interest-section {
+		display: grid;
+		gap: 2rem;
+		margin: 2.5rem 0;
+	}
+
+	.interest-section h2 {
+		color: var(--text-muted);
+		font-size: 1.05rem;
+		font-style: italic;
+		font-weight: 700;
+		margin: 0 0 1rem;
+	}
+
+	.interest-list {
+		list-style: disc;
+		margin: 0;
+		padding-left: 1.25rem;
+	}
+
+	.interest-list li {
+		color: var(--text-color);
+		margin-bottom: 0.9rem;
+	}
+
+	@media (min-width: 900px) {
+		.interest-section {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			margin-left: 50%;
+			transform: translateX(-50%);
+			width: min(calc(100vw - 4rem), 1100px);
+		}
 	}
 
 	/*
