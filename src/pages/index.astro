@@ -44,7 +44,8 @@ const pageTitle = "allen";
 							<a href="https://www.goodfire.ai/research">Goodfire</a>
 						</li>
 						<li>
-							exploring Stanford's campus to find the best study spots (ideally with monitors) and secret cozy & quiet places to nap
+							exploring Stanford's campus to find the best study spots (ideally with monitors), secret cozy & quiet places to nap, and occassionally going to SF and working from
+							<a href="https://human.capital/">human capital</a> office as part of their program
 						</li>
 						<li>
 							reading Theo Baker's
@@ -120,6 +121,20 @@ const pageTitle = "allen";
 			<p class="age-line">
 				born <span id="live-age" data-live-age>23 yr 8 mo</span> ago in LA, CA 🌴
 			</p>
+
+			<section class="news-section" aria-label="news">
+				<h2>news</h2>
+				<ul class="news-list">
+					<li>
+						<time datetime="2026-02-21">Feb 21, 2026</time>
+						<span>
+							won 1st place ($16k USD cash) at
+							<a href="https://humansand.ai/">humans&amp;</a>
+							<a href="https://luma.com/2pbif8t9?tk=3Ptii9">hackathon</a>
+						</span>
+					</li>
+				</ul>
+			</section>
 		</main>
 
 		<script>
@@ -377,5 +392,39 @@ const pageTitle = "allen";
 	#live-age {
 		color: var(--text-color);
 		font-variant-numeric: tabular-nums;
+	}
+
+	.news-section {
+		margin-top: 2.25rem;
+	}
+
+	.news-section h2 {
+		font-size: 1.05rem;
+		font-weight: 700;
+		margin: 0 0 0.9rem;
+	}
+
+	.news-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.news-list li {
+		display: grid;
+		gap: 0.35rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.news-list time {
+		color: var(--text-muted);
+		font-size: 0.9rem;
+		font-variant-numeric: tabular-nums;
+	}
+
+	@media (min-width: 560px) {
+		.news-list li {
+			grid-template-columns: 7.25rem 1fr;
+		}
 	}
 </style>
