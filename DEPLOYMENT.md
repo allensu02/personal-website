@@ -2,6 +2,26 @@
 
 This site is an Astro static site deployed with GitHub Pages.
 
+## Quick Deploy
+
+From the repo root:
+
+```sh
+npm run build
+git status
+git add src/pages/index.astro
+git commit -m "Update homepage"
+git push origin main
+```
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the Astro site and deploys it to GitHub Pages.
+
+Check the repo's **Actions** tab for the `Deploy to GitHub Pages` workflow. When it succeeds, the live site should be updated at:
+
+```text
+https://www.allensu.xyz
+```
+
 ## Current Setup
 
 - Repository: `allensu02/personal-website`
