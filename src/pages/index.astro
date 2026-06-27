@@ -16,6 +16,12 @@ const pageTitle = "allen su";
 			<p>allen su</p>
 			<p>georgia tech</p>
 			<p>human capital</p>
+			<p class="links">
+				<a href="https://www.linkedin.com/in/allensu02/">linkedin</a>
+				<a href="https://x.com/allenysu">x</a>
+				<a href="https://github.com/allensu02">github</a>
+				<span>allensu [at] gatech.edu</span>
+			</p>
 		</main>
 	</body>
 </html>
@@ -40,5 +46,30 @@ const pageTitle = "allen su";
 
 	main p {
 		margin: 0 0 0.25rem;
+	}
+
+	/*
+	 * The links line sits a bit below the three text lines.
+	 * Using flex with a gap spaces the items evenly and wraps
+	 * them cleanly on narrow screens.
+	 */
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+
+	.links a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+
+	.links a:hover {
+		text-decoration: underline;
+	}
+
+	.links span {
+		color: #ffffff;
 	}
 </style>
