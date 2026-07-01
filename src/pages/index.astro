@@ -16,24 +16,37 @@ const pageTitle = "allen su";
 			<p>allen su</p>
 			<p>
 				currently working on detecting quiet eval-awareness
-				&mdash; <a href="/quiet-eval-aware-writeup.pdf">preliminary writeup</a>,
-				<a href="https://github.com/allensu02/quiet-eval-awareness">code</a>
+				<a href="/quiet-eval-aware-writeup.pdf" target="_blank" rel="noopener noreferrer">preliminary writeup</a>,
+				<a href="https://github.com/allensu02/quiet-eval-awareness" target="_blank" rel="noopener noreferrer">code</a>
 			</p>
-			<p class="blurb">
-				previously built ML testing tooling on Apple's Proactive Intelligence
-				team that powers Shortcuts and personal intelligence features like app
-				suggestions, founded and built
-				<a href="https://codedreams.app/">Codedreams</a> (an AI tutor for iOS
-				devs), did intracortical BCI research at
-				<a href="https://www.braingate.org/">BrainGate</a>, and worked on poker
-				&amp; tech at <a href="https://www.rf.team/">RF Labs</a>
-			</p>
+			<p class="previously">previously</p>
+			<ul class="blurb">
+				<li>
+					founded and built
+					<a href="https://codedreams.app/" target="_blank" rel="noopener noreferrer">Codedreams</a>,
+					an AI tutor for iOS devs
+				</li>
+				<li>
+					investigated neural data during complex movements with
+					<a href="https://allenysu.wixsite.com/design-portfolio-all/osu" target="_blank" rel="noopener noreferrer">cursor control tasks</a>
+					and intracortical BCIs at
+					<a href="https://www.braingate.org/" target="_blank" rel="noopener noreferrer">BrainGate</a>
+				</li>
+				<li>
+					worked on poker &amp; tech at
+					<a href="https://www.rf.team/" target="_blank" rel="noopener noreferrer">RF Labs</a>
+				</li>
+				<li>
+					built ML testing tooling on Apple's Proactive Intelligence team that
+					powers Shortcuts and personal intelligence features like app suggestions
+				</li>
+			</ul>
 			<p>georgia tech</p>
 			<p>human capital</p>
 			<p class="links">
-				<a href="https://www.linkedin.com/in/allensu02/">linkedin</a>
-				<a href="https://x.com/allenysu">x</a>
-				<a href="https://github.com/allensu02">github</a>
+				<a href="https://www.linkedin.com/in/allensu02/" target="_blank" rel="noopener noreferrer">linkedin</a>
+				<a href="https://x.com/allenysu" target="_blank" rel="noopener noreferrer">x</a>
+				<a href="https://github.com/allensu02" target="_blank" rel="noopener noreferrer">github</a>
 				<span>allensu [at] gatech.edu</span>
 			</p>
 		</main>
@@ -76,13 +89,26 @@ const pageTitle = "allen su";
 	}
 
 	/*
-	 * The "previously" blurb is a full sentence, so we cap its width and
-	 * add breathing room above/below to separate it from the short lines.
+	 * "previously" label sits just above the bullet list, with a little
+	 * space above to separate it from the current-work line.
+	 */
+	.previously {
+		margin-top: 0.75rem;
+	}
+
+	/*
+	 * The "previously" bullets. We cap the width for readability and use a
+	 * small gap between items so each accomplishment reads as its own line.
 	 */
 	.blurb {
 		max-width: 42rem;
-		margin: 0.75rem 0 1.25rem;
+		margin: 0 0 1.25rem;
+		padding-left: 1.25rem;
 		line-height: 1.6;
+	}
+
+	.blurb li {
+		margin-bottom: 0.35rem;
 	}
 
 	/*
