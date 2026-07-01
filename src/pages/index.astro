@@ -14,6 +14,19 @@ const pageTitle = "allen su";
 	<body>
 		<main>
 			<p>allen su</p>
+			<p>
+				currently working on
+				<a href="/quiet-eval-aware-writeup.pdf">detecting quiet eval-awareness</a>
+			</p>
+			<p class="blurb">
+				previously built ML testing tooling on Apple's Proactive Intelligence
+				team that powers Shortcuts and personal intelligence features like app
+				suggestions, founded and built
+				<a href="https://codedreams.app/">Codedreams</a> (an AI tutor for iOS
+				devs), did intracortical BCI research at
+				<a href="https://www.braingate.org/">BrainGate</a>, and worked on poker
+				&amp; tech at <a href="https://www.rf.team/">RF Labs</a>
+			</p>
 			<p>georgia tech</p>
 			<p>human capital</p>
 			<p class="links">
@@ -46,6 +59,29 @@ const pageTitle = "allen su";
 
 	main p {
 		margin: 0 0 0.25rem;
+	}
+
+	/*
+	 * All inline links in the content are teal (same as the footer links).
+	 * They only underline on hover to keep the page clean.
+	 */
+	main a {
+		color: #5EEAD4;
+		text-decoration: none;
+	}
+
+	main a:hover {
+		text-decoration: underline;
+	}
+
+	/*
+	 * The "previously" blurb is a full sentence, so we cap its width and
+	 * add breathing room above/below to separate it from the short lines.
+	 */
+	.blurb {
+		max-width: 42rem;
+		margin: 0.75rem 0 1.25rem;
+		line-height: 1.6;
 	}
 
 	/*
