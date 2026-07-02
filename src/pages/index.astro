@@ -12,6 +12,14 @@ const pageTitle = "allen su";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
+		<!-- Top navigation. Internal links, so no target="_blank". -->
+		<nav>
+			<a href="/" class="nav-link active">home</a>
+			<a href="/about" class="nav-link">about me</a>
+			<a href="/writings" class="nav-link">writings</a>
+			<a href="/random" class="nav-link">random</a>
+		</nav>
+
 		<main>
 			<p>allen su</p>
 			<p>
@@ -69,6 +77,28 @@ const pageTitle = "allen su";
 		margin: 0;
 		min-height: 100vh;
 		padding: 2rem;
+	}
+
+	/*
+	 * Top navigation. Links are muted gray by default and turn white
+	 * on hover or when active (the current page), matching the old site.
+	 */
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		margin-bottom: 3rem;
+	}
+
+	.nav-link {
+		color: #9CA3AF;
+		text-decoration: none;
+		font-size: 0.95rem;
+	}
+
+	.nav-link:hover,
+	.nav-link.active {
+		color: #ffffff;
 	}
 
 	main p {

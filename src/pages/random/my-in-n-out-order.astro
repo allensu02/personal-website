@@ -1,0 +1,109 @@
+---
+const pageTitle = "my in n out order | allen";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<nav>
+			<a href="/" class="nav-link">home</a>
+			<a href="/about" class="nav-link">about me</a>
+			<a href="/writings" class="nav-link">writings</a>
+			<a href="/random" class="nav-link active">random</a>
+		</nav>
+
+		<main>
+			<article>
+				<h1>my in n out order</h1>
+
+				<p>double double with no tomatoes, raw chopped onion, grilled onion, chopped chilies, extra spread (sometimes)</p>
+
+				<p>animal fries with raw chopped onion, extra grilled onion, chopped chilies, extra spread (sometimes)</p>
+
+				<p>strawberry shake</p>
+			</article>
+
+			<a href="/random" class="back-link">back to random</a>
+		</main>
+	</body>
+</html>
+
+<style>
+	:root {
+		--bg-color: #000000;
+		--text-color: #ffffff;
+		--link-color: #5EEAD4;
+		--text-muted: #9CA3AF;
+	}
+
+	html {
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+		background-color: var(--bg-color);
+		color: var(--text-color);
+	}
+
+	body {
+		margin: 0;
+		padding: 2rem;
+		max-width: 650px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		margin-bottom: 3rem;
+	}
+
+	.nav-link {
+		color: var(--text-muted);
+		text-decoration: none;
+		font-size: 0.95rem;
+	}
+
+	.nav-link:hover,
+	.nav-link.active {
+		color: var(--text-color);
+	}
+
+	h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		letter-spacing: -0.02em;
+	}
+
+	p {
+		margin-bottom: 1rem;
+		color: var(--text-color);
+	}
+
+	a {
+		color: var(--link-color);
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	.back-link {
+		display: inline-block;
+		margin-top: 2rem;
+		color: var(--text-muted);
+		font-size: 0.95rem;
+	}
+
+	.back-link:hover {
+		color: var(--link-color);
+		text-decoration: none;
+	}
+</style>
