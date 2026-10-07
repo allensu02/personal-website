@@ -1,0 +1,160 @@
+---
+const pageTitle = "Osu · cursor control | allen";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="BCI Cursor Control task that accurately cues any trajectory and velocity to investigate granular features of movement" />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<nav aria-label="Main navigation">
+			<a href="/" class="nav-link">home</a>
+			<a href="/about" class="nav-link">about me</a>
+			<a href="/writings" class="nav-link">writings</a>
+		</nav>
+
+		<main>
+			<article>
+				<header>
+					<h1>Osu</h1>
+					<p class="intro">BCI Cursor Control task that accurately cues any trajectory and velocity to investigate granular features of movement</p>
+					<dl class="project-details">
+						<div>
+							<dt>ROLE</dt>
+							<dd>Research Engineer</dd>
+						</div>
+						<div>
+							<dt>TIMELINE</dt>
+							<dd>Feb 2024, - Aug, 2024 (6 Months)</dd>
+						</div>
+						<div>
+							<dt>TEAM</dt>
+							<dd>Chethan Pandarinath (Principal Investigator)</dd>
+							<dd>Mattia Rigotti-Thompson (PhD candidate)</dd>
+						</div>
+						<div>
+							<dt>SKILLS</dt>
+							<dd>Python<br />Redis<br />Pyglet<br />Numpy<br />Matplotlib</dd>
+						</div>
+					</dl>
+					<video controls playsinline preload="metadata" poster="/cursor-control/task-demo-poster.jpg" width="1920" height="1080" aria-label="Osu cursor control task demonstration">
+						<source src="/cursor-control/task-demo.mp4" type="video/mp4" />
+						<a href="/cursor-control/task-demo.mp4">Watch the cursor control task demonstration</a>
+					</video>
+				</header>
+
+				<section aria-labelledby="problem">
+					<p class="section-label">PROBLEM</p>
+					<h2 id="problem">Previous cursor control tasks couldn't investigate granular features of movement</h2>
+					<p>Previous cursor control tasks are usually of the form "attempt a movement from position A to position B." We weren't able to specifically instruct BCI participants to go at certain speeds or take complex trajectories. As result, we’re unable to investigate questions about how finer features of movement (speed, direction, etc) are encoded in motor cortex.</p>
+				</section>
+
+				<section aria-labelledby="solution">
+					<p class="section-label">SOLUTION</p>
+					<h2 id="solution">Osu, the cursor control task inspired by the music rhythm game.</h2>
+					<p>We invented a new cursor control task that allows better instruction of the participant's attempted trajectories and velocities. There are 2 main goals of the task:</p>
+					<ol>
+						<li>To be able to cue any trajectory in advance</li>
+						<li>To cue velocities in such a way that allows a good match between cued and attempted movements</li>
+					</ol>
+				</section>
+
+				<section aria-labelledby="challenges">
+					<p class="section-label">CHALLENGES</p>
+					<h2 id="challenges">We needed to convey 3 dimensions of data on a 2D display</h2>
+					<p>The main challenge was conveying 3 dimensions of data (X, Y, and speed) on a 2D screen. In the beginning of each trial, we wanted the user to be able to understand what speed they should go at and prepare for the movement. We iterated on over a dozen different graphic options and decided to use the 3 following methods to indicate speed:</p>
+					<div class="velocity-explanation">
+						<img class="velocity-targets" src="/cursor-control/velocity-targets.png" width="304" height="770" alt="A vertical path of green, orange, and red targets, with a full teal target and gray cursor at the top." loading="lazy" decoding="async" />
+						<div>
+							<h3>1 | Targets are shown and color coded to indicate velocity before trial begins</h3>
+							<p>All targets are shown before the trial so the user can prepare, plan, and execute the movement. Green targets indicate slowest speed, orange targets for medium speed, and red targets for fast speed.</p>
+							<h3>2 | Targets fill up and become teal when full</h3>
+							<p>When targets become closer to being selected, they fill up to the ring. When they're full, they become teal, indicating to the user that they should be at that target in the path.</p>
+						</div>
+					</div>
+					<h3>3 | Ghost Cursor makes a first pass</h3>
+					<p>The ghost cursor is a gray cursor that shows the ideal velocity and trajectory of the trial. It makes a first pass through the target path so the user has a better understanding of the trajectory and velocity for this trial.</p>
+					<video controls playsinline preload="metadata" poster="/cursor-control/ghost-cursor-poster.jpg" width="1920" height="1080" aria-label="Ghost cursor demonstrating the target path and velocity">
+						<source src="/cursor-control/ghost-cursor-demo.mp4" type="video/mp4" />
+						<a href="/cursor-control/ghost-cursor-demo.mp4">Watch the ghost cursor demonstration</a>
+					</video>
+					<h3>Can generate any complex trajectory</h3>
+					<p>To be able to cue any trajectory in advance, I built an algorithm to generate a path of targets from any starting point to ending point. Parameters such as the angle of the curve, spacing between targets, target ring radius, and target width can all be customized and changed in real time during the experiment</p>
+					<img class="trajectory" src="/cursor-control/complex-trajectory.png" width="427" height="296" alt="A curved path of color-coded circular targets with variable fill levels and two cursors." loading="lazy" decoding="async" />
+				</section>
+
+				<section aria-labelledby="contribution">
+					<p class="section-label">MY CONTRIBUTION</p>
+					<h2 id="contribution">Task Design &amp; Development</h2>
+					<p>As the sole Research Engineer, I was responsible for the entire end-to-end development of the task. I built the frontend of the task with Python and Pyglet, and connected it to BRAND, our backend for real time asynchronous neural decoding. I experimented with dozens of features and graphics before settling on the best user experience for the participant.</p>
+				</section>
+
+				<section aria-labelledby="goal">
+					<p class="section-label">GOAL</p>
+					<h2 id="goal">Validate and run task in a clinical session by Aug 2024</h2>
+					<p>Session time with our clinical participant is invaluable, so experiments must be bug-free and validated with our Clinical Neurotechnology Research Assistant, Payton. The Crowdstrike issue brought down the main development station I was using 2 weeks before validation, but thanks to our IT staff &amp; rest of the BrainGate team, we were still able to get the task validated and deployed in session!</p>
+					<img src="/cursor-control/task-validation.png" width="941" height="691" alt="The Osu task showing a curved target path transitioning from green through orange and back to green, alongside the gray and white cursors." loading="lazy" decoding="async" />
+				</section>
+			</article>
+			<p class="back-link"><a href="/">back to home</a></p>
+		</main>
+	</body>
+</html>
+
+<style>
+	:root {
+		color-scheme: dark;
+		--bg-color: #000000;
+		--text-color: #ffffff;
+		--link-color: #5EEAD4;
+		--text-muted: #9CA3AF;
+	}
+
+	html {
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+		background-color: var(--bg-color);
+		color: var(--text-color);
+	}
+
+	body {
+		max-width: 650px;
+		margin: 0 auto;
+		padding: 2rem;
+		line-height: 1.6;
+	}
+
+	nav { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; }
+	a { color: var(--link-color); text-decoration: none; }
+	a:hover { text-decoration: underline; }
+	a:focus-visible { outline: 2px solid var(--link-color); outline-offset: 4px; }
+	.nav-link { color: var(--text-muted); font-size: 0.95rem; }
+	.nav-link:hover { color: var(--text-color); text-decoration: none; }
+	h1 { font-size: 2rem; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1.5rem; }
+	h2 { font-size: 1.5rem; line-height: 1.35; letter-spacing: -0.02em; margin: 0 0 1rem; }
+	h3 { font-size: 1.125rem; line-height: 1.45; margin: 2rem 0 0.75rem; }
+	p { margin: 0 0 1rem; }
+	.intro { font-size: 1.125rem; }
+	.project-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2rem; margin: 2rem 0; }
+	dt, .section-label { color: var(--text-muted); font-size: 0.8rem; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+	dd { margin: 0; }
+	section { margin-top: 3rem; }
+	ol { padding-left: 1.5rem; margin: 0 0 1rem; }
+	li + li { margin-top: 0.5rem; }
+	img, video { display: block; max-width: 100%; height: auto; margin: 1.5rem auto 0; }
+	video { width: 100%; }
+	.velocity-explanation { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 2rem; align-items: center; margin-top: 2rem; }
+	.velocity-targets { width: 160px; margin: 0 auto; }
+	.velocity-explanation h3:first-child { margin-top: 0; }
+	.trajectory { width: 427px; }
+	.back-link { margin: 3rem 0 0; }
+
+	@media (max-width: 560px) {
+		.project-details { grid-template-columns: 1fr; }
+		.velocity-explanation { grid-template-columns: 1fr; }
+	}
+</style>
