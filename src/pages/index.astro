@@ -1,172 +1,59 @@
 ---
-// The frontmatter runs at build time. We just define the page title here.
+import SiteLayout from "../layouts/SiteLayout.astro";
 const pageTitle = "allen su";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<!-- Top navigation. Internal links, so no target="_blank". -->
-		<nav>
-			<a href="/" class="nav-link active">home</a>
-			<a href="/about" class="nav-link">about me</a>
-			<a href="/writings" class="nav-link">writings</a>
-		</nav>
-
-		<main>
-			<p>allen su</p>
-			<p>
-				currently working on open-weight protein language models,
-				<a href="https://github.com/Open-Athena/MarinFold" target="_blank" rel="noopener noreferrer">github</a>
-			</p>
-			<p class="previously">previously</p>
-			<ul class="blurb">
-				<li>
-					founded and built
-					<a href="https://codedreams.app/" target="_blank" rel="noopener noreferrer">Codedreams</a>,
-					an AI tutor for iOS devs
-				</li>
-				<li>
-					detecting quiet eval-awareness
-					<a href="/quiet-eval-aware-writeup.pdf" target="_blank" rel="noopener noreferrer">preliminary writeup</a>,
-					<a href="https://github.com/allensu02/quiet-eval-awareness" target="_blank" rel="noopener noreferrer">code</a>
-				</li>
-				<li>
-					investigated neural data during complex movements with
-					<a href="/cursor-control">cursor control tasks</a>
-					and intracortical BCIs at
-					<a href="https://www.braingate.org/" target="_blank" rel="noopener noreferrer">BrainGate</a>
-				</li>
-				<li>
-					worked on poker &amp; tech at
-					<a href="https://www.rf.team/" target="_blank" rel="noopener noreferrer">RF Labs</a>
-				</li>
-				<li>
-					built ML testing tooling on Apple's Proactive Intelligence team that
-					powers Shortcuts and personal intelligence features like app suggestions
-				</li>
-			</ul>
-			<p>georgia tech</p>
-			<p>human capital</p>
-			<p class="links">
-				<a href="https://www.linkedin.com/in/allensu02/" target="_blank" rel="noopener noreferrer">linkedin</a>
-				<a href="https://x.com/allenysu" target="_blank" rel="noopener noreferrer">x</a>
-				<a href="https://github.com/allensu02" target="_blank" rel="noopener noreferrer">github</a>
-				<span>allensu [at] gatech.edu</span>
-			</p>
-		</main>
-	</body>
-</html>
+<SiteLayout title={pageTitle}>
+	<header class="home-header">
+		<h1>allen su</h1>
+	</header>
+	<p>
+		currently working on open-weight protein language models,
+		<a href="https://github.com/Open-Athena/MarinFold" target="_blank" rel="noopener noreferrer">github</a>
+	</p>
+	<h2 class="previously">previously</h2>
+	<ul class="blurb">
+		<li>
+			founded and built
+			<a href="https://codedreams.app/" target="_blank" rel="noopener noreferrer">Codedreams</a>,
+			an AI tutor for iOS devs
+		</li>
+		<li>
+			detecting quiet eval-awareness
+			<a href="/quiet-eval-aware-writeup.pdf" target="_blank" rel="noopener noreferrer">preliminary writeup</a>,
+			<a href="https://github.com/allensu02/quiet-eval-awareness" target="_blank" rel="noopener noreferrer">code</a>
+		</li>
+		<li>
+			investigated neural data during complex movements with
+			<a href="/cursor-control">cursor control tasks</a>
+			and intracortical BCIs at
+			<a href="https://www.braingate.org/" target="_blank" rel="noopener noreferrer">BrainGate</a>
+		</li>
+		<li>
+			worked on poker &amp; tech at
+			<a href="https://www.rf.team/" target="_blank" rel="noopener noreferrer">RF Labs</a>
+		</li>
+		<li>
+			built ML testing tooling on Apple's Proactive Intelligence team that
+			powers Shortcuts and personal intelligence features like app suggestions
+		</li>
+	</ul>
+	<p>georgia tech</p>
+	<p>human capital</p>
+	<p class="links">
+		<a href="https://www.linkedin.com/in/allensu02/" target="_blank" rel="noopener noreferrer">linkedin</a>
+		<a href="https://x.com/allenysu" target="_blank" rel="noopener noreferrer">x</a>
+		<a href="https://github.com/allensu02" target="_blank" rel="noopener noreferrer">github</a>
+		<span>allensu [at] gatech.edu</span>
+	</p>
+</SiteLayout>
 
 <style>
-	/*
-	 * Full black background.
-	 * Setting it on html guarantees the color fills the whole viewport,
-	 * even past the body's content box.
-	 */
-	html {
-		background-color: #000000;
-		color: #ffffff;
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-	}
-
-	body {
-		margin: 0 auto;
-		max-width: 650px;
-		min-height: 100vh;
-		padding: 2rem;
-	}
-
-	/*
-	 * Top navigation. Links are muted gray by default and turn white
-	 * on hover or when active (the current page), matching the old site.
-	 */
-	nav {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 2rem;
-		margin-bottom: 3rem;
-	}
-
-	.nav-link {
-		color: #9CA3AF;
-		text-decoration: none;
-		font-size: 0.95rem;
-	}
-
-	.nav-link:hover,
-	.nav-link.active {
-		color: #ffffff;
-	}
-
-	main p {
-		margin: 0 0 0.25rem;
-	}
-
-	/*
-	 * All inline links in the content are teal (same as the footer links).
-	 * They only underline on hover to keep the page clean.
-	 */
-	main a {
-		color: #5EEAD4;
-		text-decoration: none;
-	}
-
-	main a:hover {
-		text-decoration: underline;
-	}
-
-	/*
-	 * "previously" label sits just above the bullet list, with a little
-	 * space above to separate it from the current-work line.
-	 */
-	.previously {
-		margin-top: 0.75rem;
-	}
-
-	/*
-	 * The "previously" bullets. We cap the width for readability and use a
-	 * small gap between items so each accomplishment reads as its own line.
-	 */
-	.blurb {
-		max-width: 42rem;
-		margin: 0 0 1.25rem;
-		padding-left: 1.25rem;
-		line-height: 1.6;
-	}
-
-	.blurb li {
-		margin-bottom: 0.35rem;
-	}
-
-	/*
-	 * The links line sits a bit below the three text lines.
-	 * Using flex with a gap spaces the items evenly and wraps
-	 * them cleanly on narrow screens.
-	 */
-	.links {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-		margin-top: 1rem;
-	}
-
-	.links a {
-		color: #5EEAD4;
-		text-decoration: none;
-	}
-
-	.links a:hover {
-		text-decoration: underline;
-	}
-
-	.links span {
-		color: #ffffff;
-	}
+	.home-header { margin-bottom: 2.5rem; }
+	.home-header h1 { margin-bottom: 0; }
+	p { margin: 0 0 0.5rem; }
+	.previously { margin: 2.5rem 0 1rem; font-size: 1.25rem; }
+	.blurb { margin: 0 0 2rem; padding-left: 1.25rem; }
+	.blurb li { margin-bottom: 0.875rem; padding-left: 0.25rem; }
+	.links { display: flex; flex-wrap: wrap; column-gap: 1.25rem; row-gap: 0.5rem; margin-top: 1.75rem; }
 </style>

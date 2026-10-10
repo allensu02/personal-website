@@ -1,0 +1,109 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const navigation = [
+	{ href: '/', label: 'home' },
+	{ href: '/about', label: 'about me' },
+	{ href: '/writings', label: 'writings' },
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		{description && <meta name="description" content={description} />}
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preload" href="/fonts/dm-sans-400.ttf" as="font" type="font/ttf" crossorigin />
+		<title>{title}</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#main-content">skip to content</a>
+		<aside class="sidebar">
+			<nav aria-label="Main navigation">
+				{navigation.map(({ href, label }) => (
+					<a href={href} class="nav-link" aria-current={pathname === href ? 'page' : undefined}>{label}</a>
+				))}
+			</nav>
+		</aside>
+		<main id="main-content" tabindex="-1">
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style is:global>
+	@font-face {
+		font-family: 'DM Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url('/fonts/dm-sans-400.ttf') format('truetype');
+	}
+	@font-face {
+		font-family: 'DM Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-display: swap;
+		src: url('/fonts/dm-sans-500.ttf') format('truetype');
+	}
+	@font-face {
+		font-family: 'DM Sans';
+		font-style: normal;
+		font-weight: 600;
+		font-display: swap;
+		src: url('/fonts/dm-sans-600.ttf') format('truetype');
+	}
+	@font-face {
+		font-family: 'DM Sans';
+		font-style: normal;
+		font-weight: 700;
+		font-display: swap;
+		src: url('/fonts/dm-sans-700.ttf') format('truetype');
+	}
+
+	:root {
+		color-scheme: dark;
+		--bg-color: #000000;
+		--text-color: #ffffff;
+		--link-color: #5EEAD4;
+		--text-muted: #9CA3AF;
+	}
+
+	* { box-sizing: border-box; }
+	html { background: var(--bg-color); color: var(--text-color); font-family: 'DM Sans', sans-serif; }
+	body { margin: 0; font-size: 1.0625rem; line-height: 1.7; }
+	.sidebar { position: fixed; top: 4.5rem; left: clamp(1.5rem, 2.5vw, 3rem); width: 10rem; }
+	.sidebar nav { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+	.nav-link { color: var(--text-muted); font-size: 1rem; text-decoration: none; }
+	.nav-link:hover, .nav-link[aria-current='page'] { color: var(--text-color); }
+	.nav-link:hover { text-decoration: none; }
+	main { max-width: 45rem; margin: 0 auto; padding: 4.25rem 0 6rem; }
+	main:focus { outline: none; }
+	h1 { margin: 0 0 2.5rem; font-size: 2.5rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.035em; }
+	h2 { margin: 2.5rem 0 1rem; font-size: 1.5rem; font-weight: 600; line-height: 1.4; letter-spacing: -0.02em; }
+	p { margin: 0 0 1rem; }
+	a { color: var(--link-color); text-decoration: none; }
+	a:hover { text-decoration: underline; }
+	a:focus-visible { outline: 2px solid var(--link-color); outline-offset: 5px; }
+	.skip-link { position: fixed; top: 0.75rem; left: 1.5rem; padding: 0.4rem 0.75rem; background: var(--bg-color); transform: translateY(-200%); z-index: 1; }
+	.skip-link:focus { transform: translateY(0); }
+
+	@media (max-width: 1200px) {
+		main { margin-left: 15rem; margin-right: 3rem; }
+	}
+
+	@media (max-width: 760px) {
+		body { font-size: 1rem; }
+		.sidebar { position: static; width: auto; margin: 1.75rem 1.5rem 0; }
+		.sidebar nav { flex-direction: row; flex-wrap: wrap; gap: 0.75rem 1.75rem; }
+		main { margin: 0 1.5rem; padding-top: 3rem; padding-bottom: 4rem; }
+		h1 { font-size: 2.125rem; margin-bottom: 2rem; }
+	}
+</style>

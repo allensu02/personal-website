@@ -22,7 +22,7 @@ Do not reproduce the old Wix portfolio shell, promotional banners, or visual the
 
 ## Design Principles
 
-- Match the existing site's dark theme and centered reading column.
+- Keep the dark theme, with a left sidebar and a spacious reading column. Use a larger name heading on the homepage and DM Sans throughout.
 - Keep the work and original project media prominent.
 - Preserve source content and the relationships between explanations and media.
 - Keep navigation simple and consistent with Home, About, and Writings.
