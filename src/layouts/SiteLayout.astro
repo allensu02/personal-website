@@ -1,4 +1,7 @@
 ---
+import ColorControls from '../components/ColorControls.astro';
+import colorScript from '../scripts/colors.js?raw';
+
 interface Props {
 	title: string;
 	description?: string;
@@ -7,7 +10,7 @@ interface Props {
 const { title, description } = Astro.props;
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 const navigation = [
-	{ href: '/', label: 'about me' },
+	{ href: '/', label: 'about' },
 	{ href: '/before', label: 'before' },
 	{ href: '/fun', label: 'fun' },
 	{ href: '/writings', label: 'writings' },
@@ -20,6 +23,7 @@ const navigation = [
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<script is:inline set:html={colorScript} />
 		{description && <meta name="description" content={description} />}
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preload" href="/fonts/dm-sans-400.ttf" as="font" type="font/ttf" crossorigin />
@@ -37,6 +41,7 @@ const navigation = [
 		<main id="main-content" tabindex="-1">
 			<slot />
 		</main>
+		<ColorControls />
 	</body>
 </html>
 

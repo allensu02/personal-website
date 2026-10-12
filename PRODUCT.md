@@ -25,7 +25,8 @@ Do not reproduce the old Wix portfolio shell, promotional banners, or visual the
 - Keep the dark theme, with a left sidebar and a spacious reading column. Use a larger name heading on the homepage and DM Sans throughout.
 - Keep the work and original project media prominent.
 - Preserve source content and the relationships between explanations and media.
-- Keep navigation simple and consistent with About Me, Before, Fun, Writings, and Random.
+- Keep navigation simple and consistent with About, Before, Fun, Writings, and Random.
+- Default to the dark palette, with optional visitor-controlled background, text, and link colors that persist across pages and can be reset.
 
 ## Accessibility & Inclusion
 
