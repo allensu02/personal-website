@@ -1,5 +1,6 @@
 ---
 import ColorControls from '../components/ColorControls.astro';
+import Analytics from '../components/Analytics.astro';
 import colorScript from '../scripts/colors.js?raw';
 
 interface Props {
@@ -28,6 +29,7 @@ const navigation = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preload" href="/fonts/dm-sans-400.ttf" as="font" type="font/ttf" crossorigin />
 		<title>{title}</title>
+		<Analytics />
 	</head>
 	<body>
 		<a class="skip-link" href="#main-content">skip to content</a>

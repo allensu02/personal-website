@@ -21,6 +21,10 @@ jobs:
         uses: actions/checkout@v5
       - name: Install, build, and upload your site
         uses: withastro/action@v5
+        env:
+          # Public, write-only browser token for the Default project.
+          PUBLIC_POSTHOG_KEY: phc_edrmYRQZhj4LjK5R8E2UsB4apko7ZXvQvUtVFIg007M
+          PUBLIC_POSTHOG_HOST: https://us.i.posthog.com
 
   deploy:
     needs: build

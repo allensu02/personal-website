@@ -1,0 +1,31 @@
+<script>
+	const projectKey = import.meta.env.PUBLIC_POSTHOG_KEY?.trim();
+	const apiHost = import.meta.env.PUBLIC_POSTHOG_HOST?.trim();
+	const isLiveSite = ['allensu.xyz', 'www.allensu.xyz'].includes(window.location.hostname);
+
+	// Keep development and unconfigured builds out of the production analytics.
+	if (import.meta.env.PROD && isLiveSite && projectKey && apiHost) {
+		import('posthog-js').then(({ default: posthog }) => {
+			posthog.init(projectKey, {
+				api_host: apiHost,
+				defaults: '2026-05-30',
+				person_profiles: 'identified_only',
+				capture_pageview: true,
+				capture_pageleave: true,
+				autocapture: {
+					dom_event_allowlist: ['click'],
+					element_allowlist: ['a', 'button'],
+				},
+				disable_session_recording: true,
+				disable_surveys: true,
+				capture_heatmaps: false,
+				capture_performance: false,
+				capture_exceptions: false,
+				capture_dead_clicks: false,
+				rageclick: false,
+			});
+		}).catch(() => {
+			// Analytics failing or being blocked must never interrupt the website.
+		});
+	}
+</script>
