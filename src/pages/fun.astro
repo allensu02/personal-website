@@ -5,7 +5,27 @@ const pageTitle = "fun | allen";
 
 <SiteLayout title={pageTitle}>
 	<h1>fun</h1>
-	<ul>
+	<ul class="fun-list">
+		<li>
+			<p>
+				<a href="https://x.com/allenysu/status/2027191570496397809?s=20" target="_blank" rel="noopener noreferrer">won $16k USD cash</a>
+				as the first-place prize at the
+				<a href="https://luma.com/2pbif8t9" target="_blank" rel="noopener noreferrer">humans&amp; hackathon</a>,
+				competing solo and building <strong>Crew</strong>.
+			</p>
+			<p>
+				AI clones for employees, focused on secure, policy-first access to company knowledge
+				across tools like Slack, GitHub, and more.
+			</p>
+			<div class="judges">
+				<p class="judges-label">judges:</p>
+				<ul>
+					<li><a href="https://joannejang.com/" target="_blank" rel="noopener noreferrer">Joanne Jang</a> (Core Auto, previously OpenAI)</li>
+					<li><a href="https://x.com/gharik" target="_blank" rel="noopener noreferrer">Georges Harik</a> (humans&amp; cofounder, Google’s 7th employee)</li>
+					<li><a href="https://rauchg.com/" target="_blank" rel="noopener noreferrer">Guillermo Rauch</a> (Vercel CEO)</li>
+				</ul>
+			</div>
+		</li>
 		<li>
 			<a href="https://sciencetakehome.vercel.app/" target="_blank" rel="noopener noreferrer">fun typing test</a>
 			to maximize information transfer rate
@@ -15,6 +35,13 @@ const pageTitle = "fun | allen";
 </SiteLayout>
 
 <style>
-	ul { margin: 0; padding-left: 1.25rem; }
-	li { padding-left: 0.25rem; }
+	.fun-list { margin: 0; padding-left: 1.25rem; }
+	.fun-list > li { padding-left: 0.25rem; }
+	.fun-list > li + li { margin-top: 2rem; }
+	.fun-list p { margin: 0 0 0.75rem; }
+	strong { font-weight: 600; }
+	.judges { color: var(--text-muted); font-size: 0.9375rem; line-height: 1.65; }
+	.judges .judges-label { margin-bottom: 0.25rem; }
+	.judges ul { list-style: none; margin: 0; padding: 0; }
+	.judges li + li { margin-top: 0.25rem; }
 </style>
