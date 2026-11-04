@@ -7,23 +7,33 @@ const pageTitle = "allen su";
 	<header class="home-header">
 		<h1>allen su</h1>
 	</header>
-	<p>
-		currently working on open-weight protein language models,
-		<a href="https://github.com/Open-Athena/MarinFold" target="_blank" rel="noopener noreferrer">github</a>
-	</p>
-	<p>georgia tech</p>
-	<p>working from <a href="https://human.capital/" target="_blank" rel="noopener noreferrer">human capital</a> in FiDi, SF</p>
-	<p class="links">
-		<a href="https://www.linkedin.com/in/allensu02/" target="_blank" rel="noopener noreferrer">linkedin</a>
-		<a href="https://x.com/allenysu" target="_blank" rel="noopener noreferrer">x</a>
-		<a href="https://github.com/allensu02" target="_blank" rel="noopener noreferrer">github</a>
-		<span>allensu [at] gatech.edu</span>
-	</p>
+	<div class="about-intro">
+		<div class="about-copy">
+			<p>
+				currently working on open-weight protein language models,
+				<a href="https://github.com/Open-Athena/MarinFold" target="_blank" rel="noopener noreferrer">github</a>
+			</p>
+			<p>georgia tech</p>
+			<p>working from <a href="https://human.capital/" target="_blank" rel="noopener noreferrer">human capital</a> in FiDi, SF</p>
+			<p class="links">
+				<a href="https://www.linkedin.com/in/allensu02/" target="_blank" rel="noopener noreferrer">linkedin</a>
+				<a href="https://x.com/allenysu" target="_blank" rel="noopener noreferrer">x</a>
+				<a href="https://github.com/allensu02" target="_blank" rel="noopener noreferrer">github</a>
+				<span>allensu [at] gatech.edu</span>
+			</p>
+		</div>
+		<img class="portrait" src="/about/allen-su.png" width="868" height="990" alt="Portrait of Allen Su in front of a red Monaco Invitational backdrop." decoding="async" />
+	</div>
 </SiteLayout>
 
 <style>
 	.home-header { margin-bottom: 2.5rem; }
 	.home-header h1 { margin-bottom: 0; }
+	.about-intro { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2rem; align-items: start; }
+	.portrait { display: block; width: 100%; max-width: 15rem; height: auto; }
 	p { margin: 0 0 0.5rem; }
 	.links { display: flex; flex-wrap: wrap; column-gap: 1.25rem; row-gap: 0.5rem; margin-top: 1.75rem; }
+	@media (max-width: 1000px) {
+		.about-intro { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
+	}
 </style>
